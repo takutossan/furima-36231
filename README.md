@@ -4,24 +4,33 @@
 
 | Column             | Type   | Options     |
 | ------------------ | ------ | ----------- |
+| nickname           | string | null: false |
 | email              | string | null: false |
 | encrypted_password | string | null: false |
-| name               | string | null: false |
+| first_name         | string | null: false |
+| last_name          | string | null: false |
+| first_name_kana    | string | null: false |
+| last_name_kana     | string | null: false |
+| birthday           | string | null: false |
 
 ### Association
 
 - has_many :products
-- has_many :Buyer
+- has_many :Buyers
 
 ## products テーブル
 
-| Column     | Type       | Options                        |
-| ---------- | ---------- | ------------------------------ |
-| item       | string     | null: false                    |
-| category   | text       | null: false                    |
-| price      | text       | null: false                    |
-| seller     | text       | null: false                    |
-| user       | references | null: false, foreign_key: true |
+| Column         | Type       | Options                        |
+| -------------- | ---------- | ------------------------------ |
+| item           | text       | null: false                    |
+| message        | string     | null: false                    |
+| category       | text       | null: false                    |
+| price          | text       | null: false                    |
+| item_status    | text       | null: false                    |
+| shipping_cost  | text       | null: false                    |
+| shipper        | text       | null: false                    |
+| shipping_date  | text       | null: false                    |
+| user           | references | null: false, foreign_key: true |
 
 ### Association
 
@@ -32,7 +41,6 @@
 
 | Column    | Type       | Options                        |
 | --------- | ---------- | ------------------------------ |
-| credit    | stiring    | null: false                    |
 | user      | references | null: false, foreign_key: true |
 | product   | references | null: false, foreign_key: true |
 
@@ -44,11 +52,14 @@
 
 ## address テーブル
 
-| Column    | Type       | Options                        |
-| --------- | ---------- | ------------------------------ |
-| name      | text       | null: false                    |
-| address   | text       | null: false                    |
-| buyer     | references | null: false, foreign_key: true |
+| Column           | Type       | Options                        |
+| ---------------- | ---------- | ------------------------------ |
+| zip_code         | text       | null: false                    |
+| prefecture       | text       | null: false                    |
+| municipalities   | text       | null: false                    |
+| street_number    | text       | null: false                    |
+| telephone_number | text       | null: false                    |
+| buyer            | references | null: false, foreign_key: true |
 
 ### Association
 
