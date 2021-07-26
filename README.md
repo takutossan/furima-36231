@@ -5,36 +5,36 @@
 | Column             | Type   | Options     |
 | ------------------ | ------ | ----------- |
 | nickname           | string | null: false |
-| email              | string | null: false |
+| email              | string | unique: true|
 | encrypted_password | string | null: false |
 | first_name         | string | null: false |
 | last_name          | string | null: false |
 | first_name_kana    | string | null: false |
 | last_name_kana     | string | null: false |
-| birthday           | string | null: false |
+| birthday           | date   | null: false |
 
 ### Association
 
 - has_many :products
-- has_many :Buyers
+- has_many :buyers
 
 ## products テーブル
 
-| Column         | Type       | Options                        |
-| -------------- | ---------- | ------------------------------ |
-| item           | text       | null: false                    |
-| message        | string     | null: false                    |
-| category       | text       | null: false                    |
-| price          | text       | null: false                    |
-| item_status    | text       | null: false                    |
-| shipping_cost  | text       | null: false                    |
-| shipper        | text       | null: false                    |
-| shipping_date  | text       | null: false                    |
-| user           | references | null: false, foreign_key: true |
+| Column            | Type       | Options                        |
+| ----------------- | ---------- | ------------------------------ |
+| name              | string     | null: false                    |
+| message           | text       | null: false                    |
+| category          | string     | null: false                    |
+| price             | integer    | null: false                    |
+| item_status_id    | integer    | null: false                    |
+| shipping_cost_id  | integer    | null: false                    |
+| shipper_id        | integer    | null: false                    |
+| shipping_date_id  | integer    | null: false                    |
+| user              | references | null: false, foreign_key: true |
 
 ### Association
 
-- has_many :Buyer
+- has_many :buyer
 - belongs_to :user
 
 ## Buyer テーブル
@@ -48,17 +48,18 @@
 
 - has_one    :address
 - belongs_to :user
-- belongs_to :products
+- belongs_to :product
 
 ## address テーブル
 
 | Column           | Type       | Options                        |
 | ---------------- | ---------- | ------------------------------ |
-| zip_code         | text       | null: false                    |
+| zip_code         | string     | null: false                    |
 | prefecture       | text       | null: false                    |
-| municipalities   | text       | null: false                    |
-| street_number    | text       | null: false                    |
-| telephone_number | text       | null: false                    |
+| municipalities   | string     | null: false                    |
+| street_number    | string     | null: false                    |
+| telephone_number | string     | null: false                    |
+| building         | string     | null: false                    |
 | buyer            | references | null: false, foreign_key: true |
 
 ### Association
