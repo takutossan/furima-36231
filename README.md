@@ -1,24 +1,55 @@
-# README
+# テーブル設計
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## users テーブル
 
-Things you may want to cover:
+| Column             | Type   | Options     |
+| ------------------ | ------ | ----------- |
+| email              | string | null: false |
+| encrypted_password | string | null: false |
+| name               | string | null: false |
 
-* Ruby version
+### Association
 
-* System dependencies
+- has_many :products
+- has_many :Buyer
 
-* Configuration
+## products テーブル
 
-* Database creation
+| Column     | Type       | Options                        |
+| ---------- | ---------- | ------------------------------ |
+| item       | string     | null: false                    |
+| category   | text       | null: false                    |
+| price      | text       | null: false                    |
+| seller     | text       | null: false                    |
+| user       | references | null: false, foreign_key: true |
 
-* Database initialization
+### Association
 
-* How to run the test suite
+- has_many :Buyer
+- belongs_to :user
 
-* Services (job queues, cache servers, search engines, etc.)
+## Buyer テーブル
 
-* Deployment instructions
+| Column    | Type       | Options                        |
+| --------- | ---------- | ------------------------------ |
+| credit    | stiring    | null: false                    |
+| user      | references | null: false, foreign_key: true |
+| product   | references | null: false, foreign_key: true |
 
-* ...
+### Association
+
+- has_one    :address
+- belongs_to :user
+- belongs_to :products
+
+## address テーブル
+
+| Column    | Type       | Options                        |
+| --------- | ---------- | ------------------------------ |
+| name      | text       | null: false                    |
+| address   | text       | null: false                    |
+| buyer     | references | null: false, foreign_key: true |
+
+### Association
+
+- belongs_to :buyer
