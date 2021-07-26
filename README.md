@@ -2,16 +2,16 @@
 
 ## users テーブル
 
-| Column             | Type   | Options     |
-| ------------------ | ------ | ----------- |
-| nickname           | string | null: false |
-| email              | string | unique: true|
-| encrypted_password | string | null: false |
-| first_name         | string | null: false |
-| last_name          | string | null: false |
-| first_name_kana    | string | null: false |
-| last_name_kana     | string | null: false |
-| birthday           | date   | null: false |
+| Column             | Type   | Options                   |
+| ------------------ | ------ | ------------------------- |
+| nickname           | string | null: false               |
+| email              | string | null: false, unique: true |
+| encrypted_password | string | null: false               |
+| first_name         | string | null: false               |
+| last_name          | string | null: false               |
+| first_name_kana    | string | null: false               |
+| last_name_kana     | string | null: false               |
+| birthday           | date   | null: false               |
 
 ### Association
 
@@ -24,8 +24,8 @@
 | ----------------- | ---------- | ------------------------------ |
 | name              | string     | null: false                    |
 | message           | text       | null: false                    |
-| category          | string     | null: false                    |
-| price             | integer    | null: false                    |
+| category_id       | integer    | null: false                    |
+| price_id          | integer    | null: false                    |
 | item_status_id    | integer    | null: false                    |
 | shipping_cost_id  | integer    | null: false                    |
 | shipper_id        | integer    | null: false                    |
@@ -34,10 +34,10 @@
 
 ### Association
 
-- has_many :buyer
+- has_one :buyer
 - belongs_to :user
 
-## Buyer テーブル
+## Buyers テーブル
 
 | Column    | Type       | Options                        |
 | --------- | ---------- | ------------------------------ |
@@ -50,16 +50,16 @@
 - belongs_to :user
 - belongs_to :product
 
-## address テーブル
+## addresses テーブル
 
 | Column           | Type       | Options                        |
 | ---------------- | ---------- | ------------------------------ |
 | zip_code         | string     | null: false                    |
-| prefecture       | text       | null: false                    |
+| prefecture_id    | integer    | null: false                    |
 | municipalities   | string     | null: false                    |
 | street_number    | string     | null: false                    |
 | telephone_number | string     | null: false                    |
-| building         | string     | null: false                    |
+| building         | string     |                                |
 | buyer            | references | null: false, foreign_key: true |
 
 ### Association

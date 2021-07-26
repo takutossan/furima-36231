@@ -1,6 +1,6 @@
 <mxfile host="65bd71144e">
     <diagram id="7YezU6hHg4VuKxFWNtfT" name="ページ1">
-        <mxGraphModel dx="312" dy="526" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+        <mxGraphModel dx="117" dy="680" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
@@ -13,7 +13,7 @@
                 <mxCell id="25" value="products" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;rounded=1;fontSize=14;fontStyle=0;strokeWidth=2;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;" parent="1" vertex="1">
                     <mxGeometry x="560" y="70" width="160" height="190" as="geometry"/>
                 </mxCell>
-                <mxCell id="26" value="- image&#10;- name&#10;- message&#10;- category&#10;- price&#10;- item_status_id&#10;- shipping_cost_id&#10;- shipper_id&#10;- shipping_date_id&#10;- user_id&#10;" style="align=left;strokeColor=none;fillColor=none;spacingLeft=4;fontSize=12;verticalAlign=top;resizable=0;rotatable=0;part=1;" parent="25" vertex="1">
+                <mxCell id="26" value="- image&#10;- name&#10;- message&#10;- category_id&#10;- price_id&#10;- item_status_id&#10;- shipping_cost_id&#10;- shipper_id&#10;- shipping_date_id&#10;- user_id&#10;" style="align=left;strokeColor=none;fillColor=none;spacingLeft=4;fontSize=12;verticalAlign=top;resizable=0;rotatable=0;part=1;" parent="25" vertex="1">
                     <mxGeometry y="30" width="160" height="160" as="geometry"/>
                 </mxCell>
                 <mxCell id="27" value="address" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;rounded=1;fontSize=14;fontStyle=0;strokeWidth=2;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;" parent="1" vertex="1">
