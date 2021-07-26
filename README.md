@@ -25,7 +25,7 @@
 | name              | string     | null: false                    |
 | message           | text       | null: false                    |
 | category_id       | integer    | null: false                    |
-| price_id          | integer    | null: false                    |
+| price             | integer    | null: false                    |
 | item_status_id    | integer    | null: false                    |
 | shipping_cost_id  | integer    | null: false                    |
 | shipper_id        | integer    | null: false                    |
@@ -55,7 +55,7 @@
 | Column           | Type       | Options                        |
 | ---------------- | ---------- | ------------------------------ |
 | zip_code         | string     | null: false                    |
-| prefecture_id    | integer    | null: false                    |
+| shipper_id       | integer    | null: false                    |
 | municipalities   | string     | null: false                    |
 | street_number    | string     | null: false                    |
 | telephone_number | string     | null: false                    |
