@@ -8,8 +8,8 @@ RSpec.describe User, type: :model do
   describe 'ユーザー新規登録' do
     context '新規登録できるとき' do
       it 'passwordとpassword_confirmationが6文字以上であれば登録できる' do
-        @user.password = '000000'
-        @user.password_confirmation = '000000'
+        @user.password = 'aaa000'
+        @user.password_confirmation = 'aaa000'
         expect(@user).to be_valid
       end
       it 'nicknameとemail、password、password_confirmation、birthday、last_name、first_name、last_name_kanaとfirst_name_kanaが存在すれば登録できる' do
@@ -70,10 +70,52 @@ RSpec.describe User, type: :model do
         expect(another_user.errors.full_messages).to include 'Email has already been taken'
       end
       it 'passwordが5文字以下では登録できない' do
-        @user.password = '00000'
-        @user.password_confirmation = '00000'
+        @user.password = 'aa000'
+        @user.password_confirmation = 'aa000'
         @user.valid?
         expect(@user.errors.full_messages).to include 'Password is too short (minimum is 6 characters)'
+      end
+      it 'passwordが半角数字のみの場合は登録できない' do
+        @user.password = '000000'
+        @user.password_confirmation = '000000'
+        @user.valid?
+        expect(@user.errors.full_messages).to include "Password is invalid"
+      end
+      it 'passwordが半角英字のみの場合は登録できない' do
+        @user.password = 'aaaaaa'
+        @user.password_confirmation = 'aaaaaa'
+        @user.valid?
+        expect(@user.errors.full_messages).to include "Password is invalid"
+      end
+      it 'passwordが全角の場合は登録できない' do
+        @user.password = 'ああああああ'
+        @user.password_confirmation = 'ああああああ'
+        @user.valid?
+        expect(@user.errors.full_messages).to include "Password is invalid"
+    end
+      it 'last_nameは全角（漢字・ひらがな・カタカナ）でなければ登録できない' do
+        @user.password = 'ｱｱｱｱｱｱ'
+        @user.password_confirmation = 'ｱｱｱｱｱｱ'
+        @user.valid?
+        expect(@user.errors.full_messages).to include "Password is invalid"
+      end
+      it 'first_nameは全角（漢字・ひらがな・カタカナ）でなければ登録できない' do
+        @user.password = 'ｱｱｱｱｱｱ'
+        @user.password_confirmation = 'ｱｱｱｱｱｱ'
+        @user.valid?
+        expect(@user.errors.full_messages).to include "Password is invalid"
+      end
+      it 'last_name_kanaは全角（カタカナ）でなければ登録できない' do
+        @user.password = 'ああああああ'
+        @user.password_confirmation = 'ああああああ'
+        @user.valid?
+        expect(@user.errors.full_messages).to include "Password is invalid"
+      end
+      it 'first_name_kanaは全角（カタカナ）でなければ登録できない' do
+        @user.password = 'ああああああ'
+        @user.password_confirmation = 'ああああああ'
+        @user.valid?
+        expect(@user.errors.full_messages).to include "Password is invalid"
       end
     end
   end
