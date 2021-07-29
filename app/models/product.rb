@@ -4,5 +4,13 @@ class Product < ActiveHash::Base
   belongs_to :user
 
   with_options presence: true do
-  validates :c
+  validates :name
+  validates :message
+  validates :category_id
+  validates :price
+  validates :item_status_id
+  validates :shipping_cost_id
+  validates :shipper_id
+  validates :shipping_date_id
+  validates :user
 end
