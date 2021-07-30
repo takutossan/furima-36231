@@ -10,9 +10,6 @@ RSpec.describe Product, type: :model do
       it 'nameとmessage、category_id、price、item_status_id、shipping_cost_id、shipper_id、shipping_date_idとuserが存在すれば出品できる' do
         expect(@product).to be_valid
       end
-      it 'imageが存在すれば登録できる' do
-        expect(@product).to be_valid
-      end
     end
     context '商品出品できないとき' do
       it 'nameが空だと登録できない' do
@@ -85,6 +82,11 @@ RSpec.describe Product, type: :model do
         @product.valid?
         expect(@product.errors.full_messages).to include "User can't be blank"
       end
+      it '商品画像がないと登録できないこと' do
+        image = build(:image, image_url: "")
+        image.valid?
+        expect(image.errors[:image_url]).to include "Can't be blank"
+    end
     end
   end
 end
