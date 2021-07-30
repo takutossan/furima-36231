@@ -10,6 +10,9 @@ RSpec.describe Product, type: :model do
       it 'nameとmessage、category_id、price、item_status_id、shipping_cost_id、shipper_id、shipping_date_idとuserが存在すれば出品できる' do
         expect(@product).to be_valid
       end
+      it 'imageが存在すれば登録できる' do
+        expect(@product).to be_valid
+      end
     end
     context '商品出品できないとき' do
       it 'nameが空だと登録できない' do
