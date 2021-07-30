@@ -8,17 +8,17 @@ class Product < ApplicationRecord
   belongs_to :shipper
   belongs_to :shipping_date
 
-
-  with_options numericality: { other_than: 1 , message: "can't be blank"} do
-  validates :category_id
-  validates :price
-  validates :item_status_id
-  validates :shipping_cost_id
-  validates :shipper_id
-  validates :shipping_date_id
+  with_options numericality: { other_than: 1, message: "can't be blank" } do
+    validates :category_id
+    validates :item_status_id
+    validates :shipping_cost_id
+    validates :shipper_id
+    validates :shipping_date_id
   end
   with_options presence: true do
-  validates :name
-  validates :message
- end
+    validates :name
+    validates :message
+    validates :price, numericality: { greater_than_or_equal_to: 300, less_than_or_equal_to: 9_999_999 },
+                      format: { with: /\A[0-9]+\z/ }
+  end
 end
