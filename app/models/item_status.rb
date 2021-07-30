@@ -1,4 +1,4 @@
-class Item_status_id < ActiveHash::Base
+class ItemStatus < ActiveHash::Base
   self.data = [
     { id: 1, name: '--' },  
     { id: 2, name: '新品・未使用' },
@@ -12,5 +12,4 @@ class Item_status_id < ActiveHash::Base
    include ActiveHash::Associations
    has_many :products
  
-   validates :item_status_id, numericality: { other_than: 1 , message: "can't be blank"}
-  end
+   end

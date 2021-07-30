@@ -1,4 +1,4 @@
-class Shipper_id < ActiveHash::Base
+class Shipper < ActiveHash::Base
   self.data = [
     { id: 1, name: '--' },  
     {id: 2, name: '北海道'}, {id: 3, name: '青森県'}, {id: 4, name: '岩手県'},
@@ -22,5 +22,4 @@ class Shipper_id < ActiveHash::Base
    include ActiveHash::Associations
    has_many :products
  
-   validates :Shipper_id, numericality: { other_than: 1 , message: "can't be blank"}
   end

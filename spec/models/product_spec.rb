@@ -15,47 +15,47 @@ RSpec.describe Product, type: :model do
       it 'nameが空だと登録できない' do
         @product.name = ''
         @product.valid?
-        expect(@product.errors.full_messages).to include "Name can't be blank"
+        expect(@product.errors.full_messages).to include 
       end
       it 'messageが空だと登録できない' do
         @product.message = ''
         @product.valid?
-        expect(@product.errors.full_messages).to include "Message can't be blank"
+        expect(@product.errors.full_messages).to include 
       end
       it 'category_idが空だと登録できない' do
         @product.category_id = ''
         @product.valid?
-        expect(@product.errors.full_messages).to include "Category id can't be blank"
+        expect(@product.errors.full_messages).to include 
       end
       it 'priceが空だと登録できない' do
         @product.price = ''
         @product.valid?
-        expect(@product.errors.full_messages).to include "Price can't be blank"
+        expect(@product.errors.full_messages).to include 
       end
       it 'item_status_idが空だと登録できない' do
         @product.item_status_id = ''
         @product.valid?
-        expect(@product.errors.full_messages).to include "Item status id can't be blank"
+        expect(@product.errors.full_messages).to include 
       end
       it 'shipping_cost_idが空だと登録できない' do
         @product.shipping_cost_id = ''
         @product.valid?
-        expect(@product.errors.full_messages).to include "Shipping cost id can't be blank"
+        expect(@product.errors.full_messages).to include 
       end
       it 'shipper_idが空だと登録できない' do
         @product.shipper_id = ''
         @product.valid?
-        expect(@product.errors.full_messages).to include "Shipper id can't be blank"
+        expect(@product.errors.full_messages).to include 
       end
       it 'shipping_date_idが空だと登録できない' do
         @product.shipping_date_id = ''
         @product.valid?
-        expect(@product.errors.full_messages).to include "Shipping date id can't be blank"
+        expect(@product.errors.full_messages).to include 
       end
       it 'userが空だと登録できない' do
         @product.user = ''
         @product.valid?
-        expect(@product.errors.full_messages).to include "User can't be blank"
+        expect(@product.errors.full_messages).to include 
       end
     end
   end
