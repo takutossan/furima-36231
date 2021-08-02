@@ -132,21 +132,21 @@
       <li class='list'>
         <%= link_to do  %>
         <div class='item-img-content'>
-          <%= product.image, class: "item-img" %>
+          <%= image_tag product.image, class: "item-img" %>
 
           <%# 商品が売れていればsold outを表示しましょう %>
           <div class='sold-out'>
             <span>Sold Out!!</span>
           </div>
           <%# //商品が売れていればsold outを表示しましょう %>
-
+x
         </div>
         <div class='item-info'>
           <h3 class='item-name'>
             <%= product.name %>
           </h3>
           <div class='item-price'>
-            <span><%= product.price %>円<br><%= f.collection_select(:shipping_cost_id,ShippingCost.all, :id, :name, {}, {class:"select-box", id:"item-shipping-fee-status"}) %></span>
+            <span><%= product.price %>円<br><%= product.shipping_cost.name %></span>
             <div class='star-btn'>
               <%= image_tag "star.png", class:"star-icon" %>
               <span class='star-count'>0</span>
@@ -157,9 +157,7 @@
        <% end %>
       </li>
 
-      <%# 商品がない場合は以下のダミー商品が表示されるようにしましょう %>
-      <%# 商品がある場合は表示されないようにしましょう %>
-      <% @products.each do|product| %>
+       <%if product nil %> 
       <li class='list'>
         <%= link_to '#' do %>
         <%= image_tag "https://tech-master.s3.amazonaws.com/uploads/curriculums/images/Rails1-4/sample.jpg", class: "item-img" %>
@@ -175,11 +173,9 @@
             </div>
           </div>
         </div>
-        <% end %>
       <% end %>
       </li>
-      <%# //商品がある場合は表示されないようにしましょう %>
-      <%# //商品がない場合は以下のダミー商品が表示されるようにしましょう %>
+      <% end %>
     </ul>
   </div>
   <%# /商品一覧 %>
