@@ -83,10 +83,10 @@ RSpec.describe Product, type: :model do
         expect(@product.errors.full_messages).to include "User can't be blank"
       end
       it '商品画像がないと登録できないこと' do
-        image = build(:image, image_url: "")
+        image = build(:image, image_url: '')
         image.valid?
         expect(image.errors[:image_url]).to include "Can't be blank"
-    end
+      end
     end
   end
 end
