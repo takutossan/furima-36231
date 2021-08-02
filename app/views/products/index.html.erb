@@ -128,11 +128,11 @@
     </div>
     <ul class='item-lists'>
 
+      <% @products.each do|product| %>
       <li class='list'>
         <%= link_to do  %>
-        <% @products.each do|product| %>
         <div class='item-img-content'>
-          <%= image_tag "item-sample.png", class: "item-img" %>
+          <%= product.image, class: "item-img" %>
 
           <%# 商品が売れていればsold outを表示しましょう %>
           <div class='sold-out'>
@@ -146,7 +146,7 @@
             <%= product.name %>
           </h3>
           <div class='item-price'>
-            <span><%= product.price %>円<br><%= product.shipping_cost_id %></span>
+            <span><%= product.price %>円<br><%= f.collection_select(:shipping_cost_id,ShippingCost.all, :id, :name, {}, {class:"select-box", id:"item-shipping-fee-status"}) %></span>
             <div class='star-btn'>
               <%= image_tag "star.png", class:"star-icon" %>
               <span class='star-count'>0</span>
@@ -159,10 +159,10 @@
 
       <%# 商品がない場合は以下のダミー商品が表示されるようにしましょう %>
       <%# 商品がある場合は表示されないようにしましょう %>
+      <% @products.each do|product| %>
       <li class='list'>
         <%= link_to '#' do %>
         <%= image_tag "https://tech-master.s3.amazonaws.com/uploads/curriculums/images/Rails1-4/sample.jpg", class: "item-img" %>
-       <% @products.each do|product| %>
         <div class='item-info'>
           <h3 class='item-name'>
             商品を出品してね！
