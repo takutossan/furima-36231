@@ -129,6 +129,7 @@
     <ul class='item-lists'>
 
       <% @products.each do|product| %>
+      <% if post.image.present? %>
       <li class='list'>
         <%= link_to do  %>
         <div class='item-img-content'>
@@ -139,7 +140,6 @@
             <span>Sold Out!!</span>
           </div>
           <%# //商品が売れていればsold outを表示しましょう %>
-x
         </div>
         <div class='item-info'>
           <h3 class='item-name'>
@@ -154,10 +154,9 @@ x
           </div>
         </div>
         <% end %>
-       <% end %>
       </li>
-
-       <%if product nil %> 
+    <% end %>
+      <% else %>
       <li class='list'>
         <%= link_to '#' do %>
         <%= image_tag "https://tech-master.s3.amazonaws.com/uploads/curriculums/images/Rails1-4/sample.jpg", class: "item-img" %>
