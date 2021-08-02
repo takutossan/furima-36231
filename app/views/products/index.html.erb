@@ -156,8 +156,8 @@
       </li>
     <% end %>
 
+      <% if @products.blank? %>
       <li class='list'>
-      <% unless @product.nil? %>
         <%= link_to '#' do %>
         <%= image_tag "https://tech-master.s3.amazonaws.com/uploads/curriculums/images/Rails1-4/sample.jpg", class: "item-img" %>
         <div class='item-info'>
@@ -174,7 +174,7 @@
         </div>
       <% end %>
       </li>
-      <% end %>
+    <% end %>
     </ul>
   </div>
   <%# /商品一覧 %>
