@@ -7,6 +7,12 @@ class BuyersController < ApplicationController
   def create
     @buyer_address = BuyerAddress.new(buyer_params)
     if @buyer_address.valid?
+      Payjp.api_key = "sk_test_6e7b6598a03a879f110affd8"  
+      Payjp::Charge.create(
+        amount: buyer_params[:price],
+        card: buyer_params[:token],
+        currency: 'jpy'
+      )
       @buyer_address.save
       redirect_to root_path
     else

@@ -1,5 +1,5 @@
 const pay = () => {
-  Payjp.setPublicKey("pk_test_866cdc5fdb2239c0613bba99");
+  Payjp.setPublicKey("pk_test_866cdc5fdb2239c0613bba99"); 
   const submit = document.getElementById("button");
   submit.addEventListener("click", (e) => {
     e.preventDefault();
@@ -20,8 +20,14 @@ const pay = () => {
         const renderDom = document.getElementById("charge-form");
         const tokenObj = `<input value=${token} name='token' type="hidden"> `;
         renderDom.insertAdjacentHTML("beforeend", tokenObj);
-        debugger;
       }
+
+      document.getElementById("order_number").removeAttribute("name");
+      document.getElementById("order_cvc").removeAttribute("name");
+      document.getElementById("order_exp_month").removeAttribute("name");
+      document.getElementById("order_exp_year").removeAttribute("name");
+
+      document.getElementById("charge-form").submit();
     });
   });
 };
