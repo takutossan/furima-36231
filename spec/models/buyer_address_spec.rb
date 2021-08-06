@@ -46,5 +46,31 @@ RSpec.describe BuyerAddress, type: :model do
       @buyer_address.valid?
       expect(@buyer_address.errors.full_messages).to include("Telephone number can't be blank")
     end
+    it '電話番号は12桁以上では登録できないこと' do
+    @buyer_address.telephone_number = '0901111222223'
+    @buyer_address.valid?
+    expect(@buyer_address.errors.full_messages).to include("Telephone number is invalid")
+    end
+    it '電話番号は英数混合では登録できないこと' do
+    @buyer_address.telephone_number = '090awea1212'
+    @buyer_address.valid?
+    expect(@buyer_address.errors.full_messages).to include("Telephone number is invalid")
+    end
+    it 'user_idが空では購入できないこと' do
+    @buyer_address.user_id = ''
+    @buyer_address.valid?
+    expect(@buyer_address.errors.full_messages).to include("User can't be blank")
+    end
+    it 'product_idが空では購入できないこと' do
+    @buyer_address.product_id = ''
+    @buyer_address.valid?
+    expect(@buyer_address.errors.full_messages).to include("Product can't be blank")
+    end
+    it 'tokenが空では購入できないこと' do
+    @buyer_address.token = ''
+    @buyer_address.valid?
+    expect(@buyer_address.errors.full_messages).to include("Token can't be blank")
+    end
+    end
   end
 end

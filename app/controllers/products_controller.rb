@@ -1,6 +1,6 @@
 class ProductsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create]
-  before_action :set_product, only: [:show, :edit, :update, :destroy]
+  before_action :set_product, only: [:edit, :update, :destroy]
   before_action :set_confirmation, only: [:edit, :update, :destroy]
   
   def index
@@ -57,7 +57,8 @@ class ProductsController < ApplicationController
   end
 
   def set_confirmation 
-    if current_user.id == @product.user.id
-   end
+    if current_user.id == @product.user.id || @product.buyer.present?
+      redirect_to root_path
+    end
   end
 end
