@@ -27,11 +27,6 @@ class ProductsController < ApplicationController
   end
 
   def show
-    if current_user.id == @product.user.id || @product.buyer.present?
-      redirect_to root_path
-    else
-      render :show
-    end
   end
 
   def edit

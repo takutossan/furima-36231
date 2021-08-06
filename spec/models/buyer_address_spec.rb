@@ -2,7 +2,9 @@ require 'rails_helper'
 
 RSpec.describe BuyerAddress, type: :model do
   before do
-    @buyer_address = FactoryBot.build(:buyer_address)
+    buyer = FactoryBot.create(:buyer)
+    address = FactoryBot.create(:address)
+    @buyer_address = FactoryBot.build(:buyer_address,:buyer_id: buyer.id, :address_id: address.id)
   end
 
   context '内容に問題ない場合' do
