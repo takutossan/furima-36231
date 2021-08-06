@@ -3,7 +3,8 @@ class BuyerAddress
   attr_accessor :user_id, :product_id, :zip_code, :shipper_id, :municipalities, :street_number, :telephone_number, :building, :token
 
   with_options presence: true do
-    validates :user_id
+    #validates :user_id
+    validates :product_id,
     validates :zip_code, format: {with: /\A[0-9]{3}-[0-9]{4}\z/, message: "is invalid. Include hyphen(-)"}
     validates :municipalities,  format: { with: /\A[ぁ-んァ-ン一-龥]/, message: "is invalid. Input full-width characters."}
     validates :street_number

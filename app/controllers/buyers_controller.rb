@@ -2,7 +2,7 @@ class BuyersController < ApplicationController
   before_action :authenticate_user!, only: [:index,:create]
   before_action :set_product, only: [:index, :create]
   before_action :set_confirmation, only: [:index, :create]
-  #before_action :sold_out_product, only: [:index]
+  #before_action :sold_out_product, only: [:index] 後で必要になるかもしれないのでこのままでお願いします。
 
   def index
   @buyer_address = BuyerAddress.new
@@ -45,7 +45,7 @@ class BuyersController < ApplicationController
      end
     end
 
-  #def sold_out_product
+  #def sold_out_product 後で必要になるかもしれないのでこのままでお願いします。
     #if @product.buyer.present?
     #redirect_to root_path
   #end
