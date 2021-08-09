@@ -52,7 +52,7 @@ class ProductsController < ApplicationController
   end
 
   def set_confirmation 
-    if current_user.id == @product.user.id || @product.buyer.present?
+    if current_user.id != @product.user.id || @product.buyer.present?
       redirect_to root_path
     end
   end
